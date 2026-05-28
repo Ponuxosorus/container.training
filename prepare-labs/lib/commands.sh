@@ -1005,6 +1005,12 @@ EOF
         curl -fsSL https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.tgz |
         sudo tar -zxvf- -C /usr/local/bin ngrok
     fi"
+
+    # Install cri-tools
+    pssh "
+    apt-get update -q
+    apt-get install -qy cri-tools
+    "
 }
 
 _cmd kubereset "Wipe out Kubernetes configuration on all nodes"
